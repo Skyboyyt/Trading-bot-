@@ -1,0 +1,16 @@
+{
+  "name": "@tb/domain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "decimal.js": "10.6.0",
+    "uuid": "14.0.3"
+  }
+}

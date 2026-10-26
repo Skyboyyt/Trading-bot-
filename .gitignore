@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+playwright-report/
+test-results/
+apps/web/dist/
+.turbo/
+tmp/
+# Never commit key material
+*.keypair.json
+id.json
+*.pem
