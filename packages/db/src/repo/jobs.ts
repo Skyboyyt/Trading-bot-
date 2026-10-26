@@ -51,14 +51,14 @@ export async function leaseJobs(
     with ready as (
       select id from jobs
       where kind in (${kinds})
-        and run_at <= ${opts.now}
-        and (status = 'QUEUED' or (status = 'LEASED' and lease_until < ${opts.now}))
+        and run_at <= ${opts.now.toISOString()}
+        and (status = 'QUEUED' or (status = 'LEASED' and lease_until < ${opts.now.toISOString()}))
       order by run_at
       limit ${opts.limit}
       for update skip locked
     )
-    update jobs set status = 'LEASED', lease_owner = ${opts.owner}, lease_until = ${leaseUntil},
-      attempts = attempts + 1, updated_at = ${opts.now}
+    update jobs set status = 'LEASED', lease_owner = ${opts.owner}, lease_until = ${leaseUntil.toISOString()},
+      attempts = attempts + 1, updated_at = ${opts.now.toISOString()}
     from ready where jobs.id = ready.id
     returning jobs.id
   `);
@@ -69,7 +69,7 @@ export async function leaseJobs(
 
 export async function completeJob(tx: DbOrTx, id: string, owner: string, now: Date): Promise<boolean> {
   const rows = await tx.execute(sql`
-    update jobs set status = 'DONE', lease_owner = null, lease_until = null, updated_at = ${now}
+    update jobs set status = 'DONE', lease_owner = null, lease_until = null, updated_at = ${now.toISOString()}
     where id = ${id} and lease_owner = ${owner} and status = 'LEASED'
     returning id
   `);
@@ -94,7 +94,7 @@ export async function failJob(
   const delay = Math.min(baseDelayMs * 2 ** Math.max(0, row.attempts - 1), 10 * 60_000);
   await tx.execute(sql`
     update jobs set status = ${dead ? "DEAD" : "QUEUED"}, lease_owner = null, lease_until = null,
-      last_error = ${error.slice(0, 2000)}, run_at = ${new Date(now.getTime() + delay)}, updated_at = ${now}
+      last_error = ${error.slice(0, 2000)}, run_at = ${new Date(now.getTime() + delay).toISOString()}, updated_at = ${now.toISOString()}
     where id = ${id}
   `);
   return dead ? "DEAD" : "RETRY";
@@ -103,7 +103,7 @@ export async function failJob(
 /** Extend a lease for long-running work; returns false if the lease was lost. */
 export async function heartbeatJob(tx: DbOrTx, id: string, owner: string, leaseMs: number, now: Date): Promise<boolean> {
   const rows = await tx.execute(sql`
-    update jobs set lease_until = ${new Date(now.getTime() + leaseMs)}, updated_at = ${now}
+    update jobs set lease_until = ${new Date(now.getTime() + leaseMs).toISOString()}, updated_at = ${now.toISOString()}
     where id = ${id} and lease_owner = ${owner} and status = 'LEASED'
     returning id
   `);

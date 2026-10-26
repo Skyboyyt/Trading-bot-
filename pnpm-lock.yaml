@@ -20,12 +20,27 @@ importers:
       '@tb/domain':
         specifier: workspace:*
         version: link:packages/domain
+      '@tb/execution-paper':
+        specifier: workspace:*
+        version: link:packages/execution-paper
       '@tb/ledger':
         specifier: workspace:*
         version: link:packages/ledger
       '@tb/observability':
         specifier: workspace:*
         version: link:packages/observability
+      '@tb/providers':
+        specifier: workspace:*
+        version: link:packages/providers
+      '@tb/risk':
+        specifier: workspace:*
+        version: link:packages/risk
+      '@tb/screening':
+        specifier: workspace:*
+        version: link:packages/screening
+      '@tb/strategy':
+        specifier: workspace:*
+        version: link:packages/strategy
       '@types/node':
         specifier: 22.20.5
         version: 22.20.5
@@ -88,6 +103,27 @@ importers:
         specifier: 14.0.3
         version: 14.0.3
 
+  packages/execution-paper:
+    dependencies:
+      '@tb/db':
+        specifier: workspace:*
+        version: link:../db
+      '@tb/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@tb/ledger':
+        specifier: workspace:*
+        version: link:../ledger
+      '@tb/providers':
+        specifier: workspace:*
+        version: link:../providers
+      drizzle-orm:
+        specifier: 0.45.4
+        version: 0.45.4(postgres@3.4.9)
+      zod:
+        specifier: 4.6.7
+        version: 4.6.7
+
   packages/ledger:
     dependencies:
       '@tb/db':
@@ -118,6 +154,27 @@ importers:
         specifier: 4.6.7
         version: 4.6.7
 
+  packages/risk:
+    dependencies:
+      '@tb/db':
+        specifier: workspace:*
+        version: link:../db
+      '@tb/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@tb/ledger':
+        specifier: workspace:*
+        version: link:../ledger
+      '@tb/providers':
+        specifier: workspace:*
+        version: link:../providers
+      drizzle-orm:
+        specifier: 0.45.4
+        version: 0.45.4(postgres@3.4.9)
+      zod:
+        specifier: 4.6.7
+        version: 4.6.7
+
   packages/screening:
     dependencies:
       '@tb/domain':
@@ -126,6 +183,15 @@ importers:
       '@tb/providers':
         specifier: workspace:*
         version: link:../providers
+      zod:
+        specifier: 4.6.7
+        version: 4.6.7
+
+  packages/strategy:
+    dependencies:
+      '@tb/domain':
+        specifier: workspace:*
+        version: link:../domain
       zod:
         specifier: 4.6.7
         version: 4.6.7

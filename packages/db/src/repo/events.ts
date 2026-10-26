@@ -58,7 +58,7 @@ export async function claimOutbox(tx: DbOrTx, limit: number) {
 
 export async function markOutboxPublished(tx: DbOrTx, ids: readonly string[], at: Date): Promise<void> {
   if (ids.length === 0) return;
-  await tx.execute(sql`update outbox_events set published_at = ${at} where id in (${sql.join(
+  await tx.execute(sql`update outbox_events set published_at = ${at.toISOString()} where id in (${sql.join(
     ids.map((id) => sql`${id}`),
     sql`, `,
   )})`);
