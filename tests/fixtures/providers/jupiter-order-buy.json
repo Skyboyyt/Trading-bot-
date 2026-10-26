@@ -1,0 +1,45 @@
+{
+  "mode": "ultra",
+  "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "outputMint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+  "inAmount": "10000000",
+  "outAmount": "512345678901",
+  "inUsdValue": 10.0,
+  "outUsdValue": 9.93,
+  "priceImpact": -0.0712,
+  "swapUsdValue": 10.0,
+  "otherAmountThreshold": "509784000000",
+  "swapMode": "ExactIn",
+  "slippageBps": 50,
+  "priceImpactPct": "-0.000712",
+  "routePlan": [
+    {
+      "swapInfo": {
+        "ammKey": "3ne4mWqdYuNiYrYZC9TrA3FcfuFdErghH97vNPbjicr1",
+        "label": "Raydium CLMM",
+        "inputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "outputMint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "inAmount": "10000000",
+        "outAmount": "512345678901"
+      },
+      "percent": 100,
+      "bps": 10000,
+      "usdValue": 10.0
+    }
+  ],
+  "feeMint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+  "feeBps": 10,
+  "platformFee": { "amount": "512858537", "feeBps": 10, "feeMint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263" },
+  "signatureFeeLamports": 5000,
+  "signatureFeePayer": null,
+  "prioritizationFeeLamports": 46000,
+  "prioritizationFeePayer": null,
+  "rentFeeLamports": 2039280,
+  "rentFeePayer": null,
+  "router": "metis",
+  "transaction": null,
+  "gasless": false,
+  "requestId": "synthetic-request-0001",
+  "totalTime": 412,
+  "taker": null
+}

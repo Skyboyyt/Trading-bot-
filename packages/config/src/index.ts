@@ -192,5 +192,17 @@ export function secretValues(env: NodeJS.ProcessEnv = process.env): string[] {
       // Ignore unparsable URLs here; config validation reports them.
     }
   }
+  // RPC providers often embed API keys in the URL path or query string.
+  const rpc = env.SOLANA_RPC_URL;
+  if (rpc) {
+    try {
+      const u = new URL(rpc);
+      for (const v of u.searchParams.values()) if (v.length >= 8) values.push(v);
+      for (const segment of u.pathname.split("/")) if (segment.length >= 16) values.push(segment);
+      if (u.password) values.push(decodeURIComponent(u.password));
+    } catch {
+      // Reported by validation.
+    }
+  }
   return values;
 }

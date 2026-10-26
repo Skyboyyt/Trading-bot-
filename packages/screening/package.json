@@ -1,0 +1,17 @@
+{
+  "name": "@tb/screening",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@tb/domain": "workspace:*",
+    "@tb/providers": "workspace:*",
+    "zod": "4.6.7"
+  }
+}

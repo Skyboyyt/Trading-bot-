@@ -1,0 +1,28 @@
+{
+  "data": {
+    "id": "solana_Pool1111111111111111111111111111111111111",
+    "type": "pool",
+    "attributes": {
+      "base_token_price_usd": "0.0000195123",
+      "base_token_price_native_currency": "0.000000098",
+      "quote_token_price_usd": "1.0001",
+      "address": "Pool1111111111111111111111111111111111111",
+      "name": "SYNTH / USDC",
+      "pool_created_at": "2026-02-01T08:30:00Z",
+      "fdv_usd": "1950000",
+      "market_cap_usd": null,
+      "reserve_in_usd": "245310.42",
+      "volume_usd": { "m5": "1532.1", "h1": "21840.55", "h6": "90210", "h24": "402115.9" },
+      "transactions": {
+        "m5": { "buys": 14, "sells": 9, "buyers": 12, "sellers": 8 },
+        "h1": { "buys": 160, "sells": 131, "buyers": 97, "sellers": 88 },
+        "h24": { "buys": 3021, "sells": 2877, "buyers": 1440, "sellers": 1302 }
+      }
+    },
+    "relationships": {
+      "base_token": { "data": { "id": "solana_Mint111111111111111111111111111111111111", "type": "token" } },
+      "quote_token": { "data": { "id": "solana_EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", "type": "token" } },
+      "dex": { "data": { "id": "raydium", "type": "dex" } }
+    }
+  }
+}
