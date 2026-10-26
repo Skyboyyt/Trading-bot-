@@ -1,0 +1,17 @@
+{
+  "name": "@tb/execution-live",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Live execution is DISABLED in this build. Contains only the refusal stub and the transaction policy validator a future signer will use.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@tb/domain": "workspace:*",
+    "bs58": "6.0.0"
+  }
+}

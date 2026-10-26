@@ -20,6 +20,9 @@ importers:
       '@tb/domain':
         specifier: workspace:*
         version: link:packages/domain
+      '@tb/execution-live':
+        specifier: workspace:*
+        version: link:packages/execution-live
       '@tb/execution-paper':
         specifier: workspace:*
         version: link:packages/execution-paper
@@ -103,6 +106,15 @@ importers:
         specifier: 14.0.3
         version: 14.0.3
 
+  packages/execution-live:
+    dependencies:
+      '@tb/domain':
+        specifier: workspace:*
+        version: link:../domain
+      bs58:
+        specifier: 6.0.0
+        version: 6.0.0
+
   packages/execution-paper:
     dependencies:
       '@tb/db':
@@ -117,6 +129,12 @@ importers:
       '@tb/providers':
         specifier: workspace:*
         version: link:../providers
+      '@tb/risk':
+        specifier: workspace:*
+        version: link:../risk
+      '@tb/strategy':
+        specifier: workspace:*
+        version: link:../strategy
       drizzle-orm:
         specifier: 0.45.4
         version: 0.45.4(postgres@3.4.9)

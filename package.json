@@ -31,6 +31,7 @@
     "@tb/config": "workspace:*",
     "@tb/db": "workspace:*",
     "@tb/domain": "workspace:*",
+    "@tb/execution-live": "workspace:*",
     "@tb/execution-paper": "workspace:*",
     "@tb/ledger": "workspace:*",
     "@tb/observability": "workspace:*",
